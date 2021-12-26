@@ -1,3 +1,3 @@
-import {solution} from "./gamers/gamersFunc";
+import {solution} from "./codeAlone/codeAloneFunc";
 
-solution('aa??aa');
+solution('abbab');
