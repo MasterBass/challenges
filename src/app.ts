@@ -1,3 +1,3 @@
-import {solution} from "./codeAlone/codeAloneFunc";
+import {solution} from "./pairCoder/pairCoderFunc";
 
-solution('abbababaab');
+solution('abcdefghijklmnopqrstuvwxyz');
