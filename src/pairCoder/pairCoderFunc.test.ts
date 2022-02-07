@@ -26,4 +26,13 @@ describe('Pair a coder\'s solution tests', () => {
     it('checking solution for => abcdefghijklmnopqrstuvwxyzab', () => {
         expect(solution('abcdefghijklmnopqrstuvwxyzab')).to.equal(1);
     });
+    it('checking solution for => abcdefgbhijklmnopqirstuvswxyzx', () => {
+        expect(solution('abcdefgbhijklmnopqhrstuvrwxyzx')).to.equal(2);
+    });
+    it('checking solution for => abcdefgbhijklmnopqirstuvswxyzx', () => {
+        expect(solution('abcdefbghijklmnopqirstuvswxyxz')).to.equal(6);
+    });
+    it('checking solution for => abcbydefbyghbijybklmnybopqrbystubvywxyz', () => {
+        expect(solution('abcbydefbyghbijybklmnybopqrbystubvywxyz')).to.equal(2);
+    });
 });
