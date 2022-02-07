@@ -23,9 +23,12 @@ export const solution = (s: string): number => {
     // iterate to find the best
     const keys = Object.keys(rec);
     for (let i = 0; i < keys.length; i++) {
+        if (i >= result) {
+            return result;
+        }
         if (rec[keys[i]].length > 1) {
             const startResult = rec[keys[i]][0];
-            for (let j = 1; j < rec[keys[i]].length; j++) {
+            for (let j = rec[keys[i]].length - 1; j > 0; j--) {
                 if (startResult < result) {
                     const currentResult = calculateResult(rec, i, j, startResult, arr.length);
                     if (currentResult === 0) {

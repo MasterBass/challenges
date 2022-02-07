@@ -20,4 +20,10 @@ describe('Pair a coder\'s solution tests', () => {
     it('checking solution for => abcdefghijklmnopqrstuvwxyz', () => {
         expect(solution('abcdefghijklmnopqrstuvwxyz')).to.equal(26);
     });
+    it('checking solution for => abcdefghijklmnopqrstuvwxyza', () => {
+        expect(solution('abcdefghijklmnopqrstuvwxyza')).to.equal(0);
+    });
+    it('checking solution for => abcdefghijklmnopqrstuvwxyzab', () => {
+        expect(solution('abcdefghijklmnopqrstuvwxyzab')).to.equal(1);
+    });
 });
