@@ -158,7 +158,7 @@ const getNextInRow = (sourceRec: Record<string, Array<number>>, value: number, k
 //
 //  http://rosettacode.org/wiki/Dijkstra%27s_algorithm#JavaScript
 //
-export const dijkstra = (edges: Array<Edge>, source: string, target: string): [Array<string>, number] => {
+const dijkstra = (edges: Array<Edge>, source: string, target: string): [Array<string>, number] => {
     const Q = new Set<string>();
     const prev: Record<string, string> = {};
     const dist: Record<string, number> = {};
