@@ -61,7 +61,7 @@ const setElementsCost = (params: Params): void => {
             setRowCosts(params, i);
         } else {
             return;
-        }        
+        }
     }
 }
 
@@ -72,8 +72,9 @@ const setRowCosts = (params: Params, rowIndex: number) => {
     if (params.rowIndex === 0 && params.letterIndex === 0 && sourceRec[keys[rowIndex]][0] > params.result) {
         return;
     }
+    let isFinished = false;
     for (let j = 0; j < sourceRec[keys[rowIndex]].length; j++) {
-        if(params.result === 0) {
+        if(params.result === 0 || isFinished) {
             return;
         }
         if (params.letterIndex > 0) {
@@ -83,7 +84,7 @@ const setRowCosts = (params: Params, rowIndex: number) => {
                     initialValue = sourceRec[keys[rowIndex]][j];
                 } else {
                     const value = sourceRec[keys[rowIndex]][j];
-                    setCost(params, value, costsRec[elementValue] - (value - initialValue + 1));
+                    isFinished = !setCost(params, value, costsRec[elementValue] - (value - initialValue + 1));
                 }
             }
         } else if (params.rowIndex === 0 && j > 0) {
@@ -94,11 +95,14 @@ const setRowCosts = (params: Params, rowIndex: number) => {
     }
 }
 
-const setCost = (params: Params, value: number, cost: number) => {
+const setCost = (params: Params, value: number, cost: number): boolean => {
+    let result = false;
     if (!params.costsRec[value] || params.costsRec[value] > cost) {
         params.costsRec[value] = cost;
+        result = true;
     }
     if (params.result > cost) {
         params.result = cost;
     }
+    return result;
 }
