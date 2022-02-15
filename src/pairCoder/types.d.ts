@@ -1,11 +1,10 @@
-export type Edge = {
-    start: string,
-    end: string,
-    cost: number
-}
-
-export type Point = {
-    value: number,
+export type Params = {
+    letterIndex: number,
     rowIndex: number,
-    letterIndex: number
+    elementValue: number,
+    sourceRec: Record<string, Array<number>>,
+    result: number,
+    keys: Array<string>,
+    costsRec: Record<number, number>,
+    length: number
 }

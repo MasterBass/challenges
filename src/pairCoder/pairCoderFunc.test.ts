@@ -1,6 +1,5 @@
 import { solution } from './pairCoderFunc';
 import { expect } from 'chai';
-import { Edge } from './types';
 
 describe('Pair a coder\'s solution tests', () => {
     it('checking solution for empty string', () => {
@@ -47,5 +46,8 @@ describe('Pair a coder\'s solution tests', () => {
     });
     it('checking solution for => aboxabghbaklbncpqrdtcdacydwd', () => {
         expect(solution('aboxabghbaklbncpqrdtcdacydwd')).to.equal(1);
+    });
+    it('checking solution for => zzaboxabghbaklbncpqrdtcdacydwd', () => {
+        expect(solution('zzaboxabghbaklbncpqrdtcdacydwd')).to.equal(1);
     });
 });
