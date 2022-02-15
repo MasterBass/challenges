@@ -30,9 +30,6 @@ export const solution = (s: string): number => {
     }
 
     const keys = Object.keys(sourceRec);
-    if (keys.length === 0) {
-        return arr.length;
-    }
 
     const params: Params = {
         letterIndex: 0,
@@ -42,7 +39,7 @@ export const solution = (s: string): number => {
         keys: keys,
         costsRec: {},
         length: arr.length,
-        elementValue: sourceRec[keys[0]][0]
+        elementValue: 0
     };
     if (keys.length) {
         for (let i = 0; i < keys.length; i++) {
@@ -60,7 +57,11 @@ export const solution = (s: string): number => {
 const setElementsCost = (params: Params): void => {
     const { rowIndex, keys } = params;
     for (let i = rowIndex; i < keys.length; i++) {
-        setRowCosts(params, i);
+        if(params.result > 0) {
+            setRowCosts(params, i);
+        } else {
+            return;
+        }        
     }
 }
 
@@ -68,7 +69,13 @@ const setRowCosts = (params: Params, rowIndex: number) => {
     const { sourceRec, keys, length, elementValue, costsRec } = params;
     let isCalculationStarted = false;
     let initialValue = 0;
+    if (params.rowIndex === 0 && params.letterIndex === 0 && sourceRec[keys[rowIndex]][0] > params.result) {
+        return;
+    }
     for (let j = 0; j < sourceRec[keys[rowIndex]].length; j++) {
+        if(params.result === 0) {
+            return;
+        }
         if (params.letterIndex > 0) {
             if (sourceRec[keys[rowIndex]][j] > elementValue && params.rowIndex < rowIndex) {
                 if (!isCalculationStarted) {

@@ -50,4 +50,7 @@ describe('Pair a coder\'s solution tests', () => {
     it('checking solution for => zzaboxabghbaklbncpqrdtcdacydwd', () => {
         expect(solution('zzaboxabghbaklbncpqrdtcdacydwd')).to.equal(1);
     });
+    it('checking solution for => dfihunjkroieriolkngldfnoirtisklsknriutrpojslnxvlspiroeuhkgfdkjwmwermskdufiuhksbmnafkjmbzuxygewouinkegjnskngxcnljgajdhouhnamxcnvexmvjgsfgsg', () => {
+        expect(solution('dfihunjkroieriolkngldfnoirtisklsknriutrpojslnxvlspiroeuhkgfdkjwmwermskdufiuhksbmnafkjmbzuxygewouinkegjnskngxcnljgajdhouhnamxcnvexmvjgsfgsg')).to.equal(0);
+    });
 });
