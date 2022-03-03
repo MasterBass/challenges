@@ -1,3 +1,3 @@
-import {solution} from "./pairCoder/pairCoderFunc";
+import { solution } from "./yearOfTheTiger/yearOfTheTigerFunc";
 
-solution('dfihunjkroieriolkngldfnoirtisklsknriutrpojslnxvlspiroeuhkgfdkjwmwermskdufiuhksbmnafkjmbzuxygewouinkegjnskngxcnljgajdhouhnamxcnvexmvjgsfgsg');
+solution(["abc", "cba", "cab", "bac", "bca"]);
