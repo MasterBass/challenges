@@ -2,14 +2,22 @@ export const solution = (T: Array<string>): number => {
     let result = 0;
     const grouppedData: Record<string, Array<Array<string>>> = getGrouppedData(T);
     const keys = Object.keys(grouppedData);
+    const handledKeys: Array<string> = [];
     for (let i = 0; i < keys.length; i++) {
-        const possibleCombination = getAllPossibleCombination(keys[i]);
+        const key = getNextKey(grouppedData, handledKeys);
+        if (result >= grouppedData[key].length) {
+            return result;
+        }
+        const possibleCombination = getAllPossibleCombination(key);
         let itemResult = 0;
-        const items = grouppedData[keys[i]];
+        const items = grouppedData[key];
         for (let j = 0; j < possibleCombination.length; j++) {
             const templateResult = countForItem(possibleCombination[j], items);
             if (itemResult < templateResult) {
                 itemResult = templateResult;
+            }
+            if (templateResult === items.length) {
+                break;
             }
         }
         if (itemResult > result) {
@@ -18,6 +26,20 @@ export const solution = (T: Array<string>): number => {
     }
     return result;
 };
+
+const getNextKey = (data: Record<string, Array<Array<string>>>, handledKeys: Array<string>): string => {
+    let max = 0;
+    let result: string = '';
+    const keys = Object.keys(data);
+    for (let i = 0; i < keys.length; i++) {
+        if (data[keys[i]].length > max && !handledKeys.includes(keys[i])) {
+            result = keys[i];
+            max = data[keys[i]].length;
+        }
+    }
+    handledKeys.push(result);
+    return result;
+}
 
 const countForItem = (template: Array<string>, items: Array<Array<string>>): number => {
     let result = 0;
