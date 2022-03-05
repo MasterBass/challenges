@@ -59,32 +59,14 @@ const getGrouppedData = (arr: Array<string>): Record<string, Array<Array<string>
     const result: Record<string, Array<Array<string>>> = {};
     for (let i = 0; i < arr.length; i++) {
         const tempArr = arr[i].split('');
-        const keys = Object.keys(result);
-        let isAlreadyExist = false;
-        for (let j = 0; j < keys.length; j++) {
-            if (isIncludeAllChar(keys[j], tempArr)) {
-                result[keys[j]].push(tempArr);
-                isAlreadyExist = true;
-                break;
-            }
-        }
-        if (!isAlreadyExist) {
-            result[arr[i]] = [tempArr];
+        const key = [...tempArr].sort().join('');
+        if (result[key]) {
+            result[key].push(tempArr);
+        } else {
+            result[key] = [tempArr];
         }
     }
     return result;
-}
-
-const isIncludeAllChar = (key: string, arr: Array<string>): boolean => {
-    for (let i = 0; i < arr.length; i++) {
-        const index = key.indexOf(arr[i]);
-        if (index === -1) {
-            return false;
-        } else {
-            key = key.slice(0, index) + key.slice(index + 1);
-        }
-    }
-    return true;
 }
 
 const getAllPossibleCombination = (str: string): Array<Array<string>> => {
