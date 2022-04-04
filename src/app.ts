@@ -1,3 +1,3 @@
-import { solution } from "./yearOfTheTiger/yearOfTheTigerFunc";
+import { solution } from "./muaddibs/muaddibsFunc";
 
-solution(["abc","cba","cab","bac","bca"]);
+solution([]);
